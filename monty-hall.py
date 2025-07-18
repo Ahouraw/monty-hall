@@ -4,7 +4,10 @@ random.seed(time.time())
 
 def main():
     print("Welcome to the Monty Hall Game!\n")
-    monty_hall()
+    if monty_hall():
+        print("Congratulations! You won the prize!")
+    else:
+        print("Unfortunately, you didn't win this time. Play again!")
 
 
 def monty_hall():
@@ -39,19 +42,26 @@ def monty_hall():
             break
 
     # ask the user if they want to switch their choice + validate
-    while True
-        decision = input(f"{reveal} was an empty color. Would you like to switch your choice? (yes/no)\n"),strip().lower()
+    while True:
+        decision = input(f"{reveal} was an empty color. Would you like to switch your choice? (yes/no)\n").strip().lower()
 
         # remove the revealed color from the options
         busts.remove(reveal)
         colors.remove(reveal)
 
         if decision in ["yes", "y"]:
-            ...
+            for color in colors:
+                if color != choice:
+                    choice = color
+                    break
+            break
         elif decision in ["no", "n"]:
-            ...
+            break
         else:
             print("Invalid input. Please answer with 'yes' or 'no'.")
+
+    # check if the user's choice is the prize
+    return choice == prize
 
 
 if __name__ == "__main__":
